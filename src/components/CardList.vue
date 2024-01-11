@@ -1,6 +1,5 @@
 <script>
 import { store } from '../store.js';
-import axios from 'axios';
 import Cards from '../components/Cards.vue';
 export default {
     components: {
@@ -11,16 +10,6 @@ export default {
             store,
         }
     },
-    methods: {
-        getCardsList() {
-            axios.get(store.endpoint).then((response) => {
-                store.cardsList = response.data.data
-            })
-        }
-    },
-    created() {
-        this.getCardsList()
-    }
 }
 </script>
 
@@ -38,6 +27,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     padding: 20px 0;
 }
 
@@ -48,5 +38,9 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+}
+
+.margin-20 {
+    margin: 20px;
 }
 </style>
